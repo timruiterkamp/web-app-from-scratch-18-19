@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@babel/polyfill": "^7.2.5",
+    "parcel-bundler": "^1.11.0"
+  },
+  "name": "web-app-from-scratch-18-19",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/timruiterkamp/web-app-from-scratch-18-19.git",
+  "author": "Tim <timruiterkamp@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel ./src/index.html --open"
+  }
+}
