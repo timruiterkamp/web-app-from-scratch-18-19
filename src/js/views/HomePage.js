@@ -1,8 +1,21 @@
+import { getStanding } from "../data/getStanding";
+import { generateCompetitionList, getNextMatch } from "../data/getCompetition";
+import { renderGalleryItem } from "../data/getImages";
+
 export const Home = {
   render: async () => {
     let view = `
       <h1>Premiere league schedule</h1>
-      <main class="content">
+
+      <section class="headerImage">
+      </section>
+
+      <section class="upcoming-match">
+        <h2>Upcoming match:</h2>
+        <ul class="teams"></ul>
+      </section>
+
+      <section class="content">
         <div class="left-section">
           <table>
             <thead>
@@ -34,9 +47,14 @@ export const Home = {
             <tbody class="schedule"></tbody>
           </table>
         </div>
-      </main>
+        </section>
+      
       `;
     return view;
   },
-  after_render: async () => {}
+  after_render: async () => {
+    getStanding();
+    generateCompetitionList();
+    renderGalleryItem();
+  }
 };
