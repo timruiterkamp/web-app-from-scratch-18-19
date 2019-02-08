@@ -1,6 +1,7 @@
+require("dotenv").config();
 export const getData = url => {
   return fetch(url, {
-    headers: { "X-Auth-Token": "f3ee45887fd14bcbb91b085778f99e30" }
+    headers: { "X-Auth-Token": process.env.FOOTBALL_API_KEY }
   })
     .then(data => data.json())
     .catch(err => console.error(err));
