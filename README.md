@@ -2,6 +2,21 @@
 
 In this project I build a Web app from scratch using API. The use case of this project is viewing the DATA and getting specific information about the DATA.
 
+## Table of Contents
+
+1. [Live demo](#live-demo)
+2. [Installation](#installation)
+3. [Description](#description)
+4. [Which actors are there in my application](#which-actors-are-there-in-my-application)
+5. [What design patterns and best practices did I use](#What-design-patterns-and-best-practices-did-I-use)
+6. [What API has been used and what is the limit of the API](#What-API-has-been-used-and-what-is-the-limit-of-the-API.)
+7. [How does interaction flow through the application](#How-does-interaction-flow-through-the-application)
+8. [What design patterns and best practices did I use](#What-design-patterns-and-best-practices-did-I-use)
+9. [What do I want to add to the project](#What-do-I-want-to-add-to-the-project)
+10. [Technologies used](#technologies-used)
+11. [Data sources](#data-sources)
+12. [License](#license)
+
 ## Live demo
 
 The live demo can be found at: [https://timruiterkamp.github.io/web-app-from-scratch-18-19/src](https://timruiterkamp.github.io/web-app-from-scratch-18-19/src)
@@ -26,7 +41,7 @@ Run the project
   npm run dev
 ```
 
-## What is my app good for?
+## Description?
 
 My app is a representation of the current premiere league standing with the possibility to get insight to a club and player.
 
@@ -57,14 +72,19 @@ If they are interested in their team or in the team they have to face in the nex
 
 ## What do I want to add to the project?
 
-[ ] Shadow DOM (If there is time)
-[ ] Player and team overview
-[ ] Multiple competition support
-[ ] Better design
-[ ] Select own competition
-[ ] Fix styling
-[ ] Build out the template engine
+- [x] Render a list from the data
+- [x] Views generated based on route
+- [ ] Shadow DOM (If there is time)
+- [ ] Player and team overview
+- [ ] Multiple competition support
+- [ ] Better design
+- [ ] Select own competition
+- [ ] Fix styling
+- [ ] Build out the template engine
+- [ ] Loading states
 
-```
+## Techniques used
 
-```
+- ParcelJS
+- Fetch
+- Hashrouter
