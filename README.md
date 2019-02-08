@@ -21,6 +21,10 @@ In this project I build a Web app from scratch using API. The use case of this p
 
 The live demo can be found at: [https://timruiterkamp.github.io/web-app-from-scratch-18-19/src](https://timruiterkamp.github.io/web-app-from-scratch-18-19/src)
 
+|          Landings page          |           Overview page           |
+| :-----------------------------: | :-------------------------------: |
+| ![](gh-images/landing-page.png) | ![](gh-images/table-overview.png) |
+
 ## Installation
 
 Clone the repository through:
@@ -38,7 +42,7 @@ Install the dependencies
 Run the project
 
 ```bash
-  npm run dev
+  npm run start
 ```
 
 ## Description?
@@ -47,11 +51,16 @@ My app is a representation of the current premiere league standing with the poss
 
 ## Which actors are there in my application?
 
-> Diagram will be added soon
+![Actor diagram](gh-images/actor-diagram.jpg)
 
 ## What API has been used and what is the limit of the API.
 
 The api that has been used is the [football-data API](https://football-data.org). The football-data API is a very big dataset with over 176 competitions in it, container every information about the clubs in the competitions and the players in the clubs.
+
+Limits:
+
+- Scores delayed by 5 minutes
+- 10 calls/minute (600 per hour)
 
 Data that I used:
 
@@ -69,6 +78,8 @@ If they are interested in their team or in the team they have to face in the nex
 > Diagram will be added soon
 
 ## What design patterns and best practices did I use
+
+> Will be added when there is more content
 
 ## What do I want to add to the project?
 
