@@ -88,6 +88,7 @@ If they are interested in their team or in the team they have to face in the nex
 
 - [x] Render a list from the data
 - [x] Views generated based on route
+- [ ] fix routing
 - [ ] Shadow DOM (If there is time)
 - [ ] Player and team overview
 - [ ] Multiple competition support
