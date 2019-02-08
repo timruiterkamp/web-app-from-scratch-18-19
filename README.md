@@ -19,7 +19,7 @@ In this project I build a Web app from scratch using API. The use case of this p
 
 ## Live demo
 
-The live demo can be found at: [https://timruiterkamp.github.io/web-app-from-scratch-18-19/src](https://timruiterkamp.github.io/web-app-from-scratch-18-19/src)
+The live demo can be found at: [https://web-app-from-scratch-tim.netlify.com/](https://web-app-from-scratch-tim.netlify.com/)
 
 |          Landings page          |           Overview page           |
 | :-----------------------------: | :-------------------------------: |
