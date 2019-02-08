@@ -79,7 +79,10 @@ If they are interested in their team or in the team they have to face in the nex
 
 ## What design patterns and best practices did I use
 
-> Will be added when there is more content
+- Functional programming
+- Module based developing
+
+> Will be adding more over the weeks.
 
 ## What do I want to add to the project?
 
@@ -99,3 +102,7 @@ If they are interested in their team or in the team they have to face in the nex
 - ParcelJS
 - Fetch
 - Hashrouter
+
+## License
+
+This repository is licensed as [MIT](LICENSE) by [Tim Ruiterkamp](https://github.com/timruiterkamp).
