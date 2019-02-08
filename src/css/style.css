@@ -34,15 +34,28 @@ th {
   background: black;
 }
 
+.upcoming-match {
+  padding: 300px 0 100px;
+  text-align: center;
+}
+
+.upcoming-match ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
+.upcoming-match li {
+  padding: 0 1em;
+}
+
 h1 {
-  font-size: 20vh;
+  font-size: 8vh;
   color: white;
   max-width: 60vw;
   display: block;
   margin: 0 auto;
   text-align: center;
-  /* font-family: "Permanent Marker", cursive; */
-  font-family: "Monoton", cursive;
+  padding-top: 8rem;
 }
 
 @media only screen and (max-width: 760px),

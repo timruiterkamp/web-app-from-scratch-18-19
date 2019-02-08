@@ -1,4 +1,4 @@
-import { getData } from "../utils/ApiCall";
+import { getData } from "./ApiCall";
 
 export const getStanding = () => {
   const standingData = getData(

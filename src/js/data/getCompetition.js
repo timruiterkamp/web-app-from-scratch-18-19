@@ -1,4 +1,4 @@
-import { getData } from "../utils/ApiCall";
+import { getData } from "./ApiCall";
 import { parseDate, parseTime } from "../utils/dateParsing";
 
 export const generateCompetitionList = () => {
@@ -6,7 +6,7 @@ export const generateCompetitionList = () => {
     "https://api.football-data.org/v2/competitions/PL/matches?status=SCHEDULED"
   );
   const scheduleContainer = document.querySelector(".schedule");
-  const upcomingContainer = document.querySelector(".upcoming-match");
+  const upcomingContainer = document.querySelector(".teams");
 
   competitionData.then(data => {
     scheduleContainer.innerHTML += data.matches
@@ -28,7 +28,7 @@ export const generateCompetitionList = () => {
   competitionData.then(data => {
     return (upcomingContainer.innerHTML += `<li><a href="/team/${
       data.matches[0].homeTeam.id
-    }">${data.matches[0].homeTeam.name}</a></li><li><a href="/team/${
+    }">${data.matches[0].homeTeam.name}</a></li> - <li><a href="/team/${
       data.matches[0].awayTeam.id
     }">${data.matches[0].awayTeam.name}</a></li><li><time>${parseDate(
       data.matches[0].utcDate

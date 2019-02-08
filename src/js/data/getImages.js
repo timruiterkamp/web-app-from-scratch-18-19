@@ -1,7 +1,7 @@
 const numItemsToGenerate = 0;
 const numImagesAvailable = 10;
 const imageWidth = 1920; //your desired image width in pixels
-const imageHeight = 800;
+const imageHeight = 400;
 const collectionID = 1193466; //the collection ID from the original url
 
 export const renderGalleryItem = randomNumber => {
