@@ -7,7 +7,6 @@ export const generateCompetitionList = () => {
     "https://api.football-data.org/v2/competitions/PL/matches?status=SCHEDULED"
   );
   const scheduleContainer = document.querySelector(".schedule");
-  const upcomingContainer = document.querySelector(".teams");
 
   competitionData.then(data => {
     data.matches.map(async match => {
@@ -32,19 +31,21 @@ export const generateCompetitionList = () => {
   });
 
   competitionData.then(data => {
+    const upcomingContainer = document.querySelector(".teams");
+
     const match = {
       teams: [
         {
-          homeID: data.matches[0].homeTeam.id,
-          homeName: data.matches[0].homeTeam.name
+          id: data.matches[0].homeTeam.id,
+          name: data.matches[0].homeTeam.name
         },
         {
-          awayID: data.matches[0].awayTeam.id,
-          awayName: data.matches[0].awayTeam.name
+          id: data.matches[0].awayTeam.id,
+          name: data.matches[0].awayTeam.name
         }
       ],
-      date: data.matches[0].utcDate
+      date: parseDate(data.matches[0].utcDate)
     };
-    return nextMatch(match);
+    return nextMatch(upcomingContainer, match);
   });
 };

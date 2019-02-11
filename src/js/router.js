@@ -24,7 +24,7 @@ export const RouterBase = () => {
 
   const router = async () => {
     const content = null || document.querySelector("main");
-    content.innerHTML = "";
+    const dataLayer = document.createElement("section");
 
     const request = parseRequestURL();
 
@@ -34,7 +34,9 @@ export const RouterBase = () => {
       (request.verb ? "/" + request.verb : "");
 
     let page = routes[parsedURL] ? routes[parsedURL] : console.log("error");
-    content.innerHTML = await page.render();
+
+    dataLayer.innerHTML = await page.render();
+    content.appendChild(dataLayer);
     await page.after_render();
   };
 
