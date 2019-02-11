@@ -5,9 +5,6 @@ export const TeamOverview = {
   render: async () => {
     let view = `
       <h1>TESTTEST</h1>
-
-     
-      
       `;
     return view;
   },

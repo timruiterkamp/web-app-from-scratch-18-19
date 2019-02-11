@@ -9,10 +9,12 @@ export const renderGalleryItem = randomNumber => {
     `https://source.unsplash.com/collection/${collectionID}/${imageWidth}x${imageHeight}/?sig=${randomNumber}`
   ).then(response => {
     const headerContainer = document.querySelector(".headerImage");
-    headerContainer.classList.add("gallery-item");
-    headerContainer.innerHTML = `
-      <img class="gallery-image" src="${response.url}" alt="gallery image"/>
-    `;
+    const image = document.createElement("img");
+    image.src = response.url;
+    image.class = "gallery-image";
+    image.alt = "gallery image";
+
+    headerContainer.appendChild(image);
   });
 };
 for (let i = 0; i < numItemsToGenerate; i++) {

@@ -8,9 +8,9 @@ export const RouterBase = () => {
   };
 
   const parseRequestURL = () => {
-    let url = location.hash.slice(1).toLowerCase() || "/";
-    let r = url.split("/");
-    let request = {
+    const url = location.hash.slice(1).toLowerCase() || "/";
+    const r = url.split("/");
+    const request = {
       resource: null,
       id: null,
       verb: null
@@ -26,9 +26,9 @@ export const RouterBase = () => {
     const content = null || document.querySelector("main");
     content.innerHTML = "";
 
-    let request = parseRequestURL();
+    const request = parseRequestURL();
 
-    let parsedURL =
+    const parsedURL =
       (request.resource ? "/" + request.resource : "/") +
       (request.id ? "/:id" : "") +
       (request.verb ? "/" + request.verb : "");
