@@ -1,5 +1,5 @@
-import { getStanding } from "../data/getStanding";
-import { generateCompetitionList, getNextMatch } from "../data/getCompetition";
+// import { getStanding } from "../data/getStanding";
+// import { generateCompetitionList, getNextMatch } from "../data/getCompetition";
 
 export const TeamOverview = {
   render: async () => {

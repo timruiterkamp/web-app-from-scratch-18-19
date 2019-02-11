@@ -8,7 +8,7 @@ export const CompetitionTable = (appendParent, rows, date) => {
 
     TD.classList.add(team.className);
 
-    Anchor.setAttribute("href", `/team/${team.id}`);
+    Anchor.setAttribute("href", `/#/team/${team.id}`);
     Anchor.textContent = `${team.name}`;
 
     TD.appendChild(Anchor);
@@ -28,7 +28,7 @@ export const nextMatch = (appendParent, match) => {
   match.teams.forEach(team => {
     const teamContainer = document.createElement("li");
     const Anchor = document.createElement("a");
-    Anchor.setAttribute("href", `/team/${team.id}`);
+    Anchor.setAttribute("href", `/#/team/${team.id}`);
     Anchor.textContent = `${team.name}`;
     teamContainer.appendChild(Anchor);
     appendParent.appendChild(teamContainer);
@@ -111,7 +111,7 @@ function createNodesForStanding(row, data) {
 
     if (options.link) {
       const Anchor = document.createElement("a");
-      Anchor.setAttribute("href", `/team/${options.url}`);
+      Anchor.setAttribute("href", `/#/team/${options.url}`);
       Anchor.textContent = `${options.key}`;
       TD.appendChild(Anchor);
     } else {
