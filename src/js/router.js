@@ -33,11 +33,14 @@ export const RouterBase = () => {
       (request.id ? "/:id" : "") +
       (request.verb ? "/" + request.verb : "");
 
-    let page = routes[parsedURL] ? routes[parsedURL] : console.log("error");
-
-    dataLayer.innerHTML = await page.render();
-    content.appendChild(dataLayer);
-    await page.after_render();
+    if (routes[parsedURL]) {
+      let page = routes[parsedURL];
+      dataLayer.innerHTML = await page.render();
+      content.appendChild(dataLayer);
+      await page.after_render();
+    } else {
+      throw err;
+    }
   };
 
   window.addEventListener("hashchange", router);
