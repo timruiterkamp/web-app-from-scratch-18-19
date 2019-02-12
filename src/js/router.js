@@ -1,7 +1,7 @@
 import { Home } from "./views/HomePage";
 import { TeamOverview } from "./views/TeamOverview";
 // Source used: https://dev.to/rishavs/making-a-single-page-app-in-ye-good-olde-js-es6-3eng
-export const RouterBase = () => {
+export const routerBase = () => {
   const routes = {
     "/#/team/:id": TeamOverview,
     "/": Home
