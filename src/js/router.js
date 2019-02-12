@@ -42,9 +42,9 @@ export const RouterBase = () => {
       (request.verb ? "/" + request.verb : "");
 
     if (routes[parsedURL]) {
-      let page = routes[parsedURL];
-      console.log(page.render());
-      dataLayer.innerHTML = await page.render();
+      const page = routes[parsedURL];
+      const template = await page.render();
+      dataLayer.insertAdjacentHTML("afterbegin", template);
       content.appendChild(dataLayer);
       await page.after_render();
     } else {
