@@ -1,6 +1,7 @@
 import { getStanding } from "../data/getStanding";
 import { generateCompetitionList, getNextMatch } from "../data/getCompetition";
 import { renderGalleryItem } from "../data/getImages";
+import { init } from "../init";
 
 export const Home = {
   render: async () => {
@@ -53,6 +54,7 @@ export const Home = {
     return view;
   },
   after_render: async () => {
+    await init();
     getStanding();
     generateCompetitionList();
     renderGalleryItem();

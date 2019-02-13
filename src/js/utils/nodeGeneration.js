@@ -36,7 +36,7 @@ export const nextMatch = (appendParent, match) => {
 };
 
 export const StandingTable = (appendParent, data) => {
-  data.table.forEach(team => {
+  data.standings[0].table.forEach(team => {
     const TR = document.createElement("tr");
 
     const teamObject = [
