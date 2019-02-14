@@ -51,7 +51,11 @@ My app is a representation of the current premiere league standing with the poss
 
 ## Which actors are there in my application?
 
+Week 1 (trying to find out how the actor diagram works)
 ![Actor diagram](gh-images/actor-diagram.jpg)
+
+Week 2: simplified the actors and chose the main actors of my application.
+![Actor diagram](gh-images/ActorDiagram-week2.png)
 
 ## What API has been used and what is the limit of the API.
 
@@ -75,11 +79,11 @@ The user will be landing on the homepage where they can find information about t
 
 If they are interested in their team or in the team they have to face in the next round, they can click on the team name and look through their an overview of their players and details about the players.
 
-> Diagram will be added soon
+![Interaction diagram](gh-images/InteractionDiagram-week2.png)
 
 ## What design patterns and best practices did I use
 
-- Functional programming
+- Functional programming where possible
 - Module based developing
 
 > Will be adding more over the weeks.
@@ -88,7 +92,7 @@ If they are interested in their team or in the team they have to face in the nex
 
 - [x] Render a list from the data
 - [x] Views generated based on route
-- [ ] fix routing
+- [x] fix routing
 - [ ] Shadow DOM (If there is time)
 - [ ] Player and team overview
 - [ ] Multiple competition support
@@ -97,6 +101,7 @@ If they are interested in their team or in the team they have to face in the nex
 - [ ] Fix styling
 - [ ] Build out the template engine
 - [ ] Loading states
+- [x] Store
 
 ## Techniques used
 

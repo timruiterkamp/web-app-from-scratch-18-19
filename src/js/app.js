@@ -1,4 +1,4 @@
 import "@babel/polyfill";
-import { routerBase } from "./router";
+import { initRouter } from "./router";
 
-routerBase();
+initRouter();
