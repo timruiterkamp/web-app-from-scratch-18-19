@@ -1,12 +1,10 @@
 import { getTeam } from "../data/getTeam";
 
-// import { getStanding } from "../data/getStanding";
-// import { generateCompetitionList, getNextMatch } from "../data/getCompetition";
-
 export const TeamOverview = {
   render: async () => {
     let view = `
-      <h1 style="color:black;">TESTTEST</h1>
+      <section class="team-overview">
+      </section>
       `;
     return view;
   },

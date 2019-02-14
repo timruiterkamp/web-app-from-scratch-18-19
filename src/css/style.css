@@ -121,3 +121,7 @@ section.content {
   display: flex;
   flex-direction: row;
 }
+
+.team-overview {
+  color: black;
+}

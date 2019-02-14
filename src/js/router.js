@@ -1,5 +1,6 @@
 import { Home } from "./views/HomePage";
 import { TeamOverview } from "./views/TeamOverview";
+import Store from "./store/index";
 
 // Source used: https://dev.to/rishavs/making-a-single-page-app-in-ye-good-olde-js-es6-3eng
 export const routerBase = () => {
@@ -41,6 +42,8 @@ export const routerBase = () => {
       (request.resource ? "/#/" + request.resource : "/") +
       (request.id ? "/:id" : "") +
       (request.verb ? "/" + request.verb : "");
+
+    Store.dispatch("setCurrentTeam", request.id);
 
     if (routes[parsedURL]) {
       const page = routes[parsedURL];

@@ -6,5 +6,13 @@ export default {
   setStanding(state, payload) {
     state.standing = payload;
     return state;
+  },
+  setTeams(state, payload) {
+    state.team = payload;
+    return state;
+  },
+  setCurrentTeam(state, payload) {
+    state.currentTeam = payload;
+    return state;
   }
 };

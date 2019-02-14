@@ -49,7 +49,6 @@ export const Home = {
           </table>
         </div>
         </section>
-      
       `;
     return view;
   },

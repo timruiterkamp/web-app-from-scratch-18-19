@@ -1,4 +1,6 @@
 export default {
   competition: {},
-  standing: {}
+  standing: {},
+  teams: {},
+  currentTeam: {}
 };

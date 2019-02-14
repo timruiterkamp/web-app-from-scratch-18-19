@@ -7,11 +7,15 @@ class ApiCall {
   }
 
   fetcher(url) {
-    return fetch(url, {
-      headers: { "X-Auth-Token": this.apiKey }
-    })
-      .then(data => data.json())
-      .catch(err => console.error(err));
+    try {
+      return fetch(url, {
+        headers: { "X-Auth-Token": this.apiKey }
+      })
+        .then(data => data.json())
+        .catch(err => console.error(err));
+    } catch {
+      console.log("Laad de pagina nogmaals");
+    }
   }
 }
 
@@ -24,5 +28,10 @@ export default class StoreData extends ApiCall {
   async getCompetitionStandingData(url) {
     const data = await super.fetcher(url);
     Store.dispatch("setStanding", data);
+  }
+
+  async getCompetitionTeams(url) {
+    const data = await super.fetcher(url);
+    Store.dispatch("setTeams", data);
   }
 }
