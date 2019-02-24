@@ -19,13 +19,13 @@ class ApiCall {
   }
 }
 
-export default class StoreData extends ApiCall {
-  async getCompetitionData(url) {
+export default class GetData extends ApiCall {
+  async getCompetition(url) {
     const data = await super.fetcher(url);
     Store.dispatch("setCompetition", data);
   }
 
-  async getCompetitionStandingData(url) {
+  async getCompetitionStanding(url) {
     const data = await super.fetcher(url);
     Store.dispatch("setStanding", data);
   }
@@ -33,5 +33,10 @@ export default class StoreData extends ApiCall {
   async getCompetitionTeams(url) {
     const data = await super.fetcher(url);
     Store.dispatch("setTeams", data);
+  }
+
+  async getAllCompetitions(url) {
+    const data = await super.fetcher(url);
+    Store.dispatch("setAllCompetitions", data);
   }
 }

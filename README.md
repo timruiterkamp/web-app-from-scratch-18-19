@@ -73,6 +73,8 @@ Data that I used:
 - Premiere League clubs
 - Premiere League players
 
+To solve the issue with the minimal calls I can make I set the localStorage the first time s
+
 ## How does interaction flow through the application
 
 The user will be landing on the homepage where they can find information about the club in the Premiere League they support, they can see their score, goals made / goals against, standing on the league table and opponents they have to face in the next round of the Premiere League.
@@ -102,6 +104,7 @@ If they are interested in their team or in the team they have to face in the nex
 - [ ] Build out the template engine
 - [ ] Loading states
 - [x] Store
+- [x] Minimize calls with localStorage
 
 ## Techniques used
 

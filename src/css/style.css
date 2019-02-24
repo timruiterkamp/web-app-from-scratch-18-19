@@ -123,5 +123,16 @@ section.content {
 }
 
 .team-overview {
+  text-align: center;
+}
+
+.team-overview h1 {
   color: black;
+  /* margin-top: 1em; */
+}
+
+.team-overview img {
+  margin: 9vh auto 0;
+  display: block;
+  width: 13vw;
 }

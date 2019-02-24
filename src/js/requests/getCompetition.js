@@ -1,10 +1,11 @@
-import { getData } from "./ApiCall";
-import { parseDate, parseTime } from "../utils/dateParsing";
+import { parseDate } from "../utils/dateParsing";
 import { CompetitionTable, nextMatch } from "../utils/nodeGeneration";
 import Store from "../store/index";
 
 export const generateCompetitionList = () => {
-  const competitionData = Store.state.competition;
+  const competitionData = localStorage.competition
+    ? JSON.parse(localStorage.competition)
+    : Store.state.competition;
   console.log(competitionData);
   const scheduleContainer = document.querySelector(".schedule");
 

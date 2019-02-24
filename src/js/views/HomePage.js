@@ -1,6 +1,6 @@
-import { getStanding } from "../data/getStanding";
-import { generateCompetitionList, getNextMatch } from "../data/getCompetition";
-import { renderGalleryItem } from "../data/getImages";
+import { getStanding } from "../requests/getStanding";
+import { generateCompetitionList } from "../requests/getCompetition";
+import { renderGalleryItem } from "../requests/getImages";
 import { init } from "../init";
 
 export const Home = {
@@ -10,6 +10,8 @@ export const Home = {
 
       <section class="headerImage">
       </section>
+
+      <section class="competition-selection"></section>
 
       <section class="upcoming-match">
         <h2>Upcoming match:</h2>

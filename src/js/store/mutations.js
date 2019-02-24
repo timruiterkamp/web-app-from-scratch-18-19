@@ -14,5 +14,10 @@ export default {
   setCurrentTeam(state, payload) {
     state.currentTeam = payload;
     return state;
+  },
+  setAllCompetitions(state, payload) {
+    console.log(payload);
+    state.allCompetitions = payload;
+    return state;
   }
 };
