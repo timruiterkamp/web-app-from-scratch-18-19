@@ -10,6 +10,8 @@ export default class Home extends Component {
   }
 
   async render() {
+    this.clean();
+
     const w = this.dom.write;
 
     this.app.appendChild(
@@ -37,8 +39,10 @@ export default class Home extends Component {
                 {},
                 w(
                   "thead",
+                  {},
                   w(
                     "tr",
+                    {},
                     w("th", {}, "position"),
                     w("th", {}, "Team"),
                     w("th", {}, "Points"),
@@ -59,14 +63,14 @@ export default class Home extends Component {
               { class: "right-section" },
               w(
                 "table",
+                {},
                 w(
                   "thead",
-                  w(
-                    "tr",
-                    w("th", { class: "homeTeam" }, "Home team"),
-                    w("th", { class: "awayTeam" }, "Away team"),
-                    w("th", { class: "playData" }, "Date")
-                  )
+                  {},
+
+                  w("th", { class: "homeTeam" }, "Home team"),
+                  w("th", { class: "awayTeam" }, "Away team"),
+                  w("th", { class: "playData" }, "Date")
                 ),
                 w("tbody", { class: "schedule" })
               )

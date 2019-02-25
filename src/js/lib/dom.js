@@ -12,6 +12,7 @@ export default class DOM {
     const el = document.createElement(node.type);
     this.setProps(el, node.props);
 
+    console.log(node);
     node.children
       .map(child => this.create(child))
       .forEach(el.appendChild.bind(el));

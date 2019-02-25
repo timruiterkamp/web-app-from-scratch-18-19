@@ -1,20 +1,31 @@
 import { getTeam } from "../requests/getTeam";
 import { renderGalleryItem } from "../requests/getImages";
+import Component from "../lib/component";
 
-export const TeamOverview = {
-  render: async () => {
-    let view = `
-      <section class="headerImage">
-      </section>
-      <section class="team-overview">
-      </section>
-      <a href="/">Go back</a>
-
-      `;
-    return view;
-  },
-  after_render: async () => {
-    getTeam();
-    renderGalleryItem();
+export default class TeamOverview extends Component {
+  constructor() {
+    super();
   }
-};
+
+  async render() {
+    this.clean()
+    const w = this.dom.write;
+
+    this.app.appendChild(
+      this.dom.create(
+        w(
+          "section",
+          { class: "holder" },
+          w("section", { class: "headerImage" }),
+          w("section", { class: "team-overview" }),
+          w("a", { href: "/" }, "Go back")
+        )
+      )
+    );
+  }
+
+  async after_render() {
+    await getTeam();
+    await renderGalleryItem();
+  }
+}
