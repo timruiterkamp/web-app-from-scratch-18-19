@@ -19,10 +19,10 @@ export const init = async () => {
   };
 
   if (!localStorage.competition) {
-    const dataStorage = new StoreData();
-    await dataStorage.getCompetitionStanding(data.standing);
-    await dataStorage.getCompetition(data.competition);
-    await dataStorage.getCompetitionTeams(data.teams);
-    await dataStorage.getAllCompetitions(data.allCompetitions);
+    const get = new GetData();
+    await get.getCompetitionStanding(data.standing);
+    await get.getCompetition(data.competition);
+    await get.getCompetitionTeams(data.teams);
+    await get.getAllCompetitions(data.allCompetitions);
   }
 };

@@ -35,6 +35,7 @@ export const initRouter = () => {
 
     if (routes[parsedURL]) {
       const page = routes[parsedURL];
+      console.log(page);
       await page.render();
       await page.after_render();
     } else {

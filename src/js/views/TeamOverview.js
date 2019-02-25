@@ -1,6 +1,5 @@
-import { getTeam } from "../requests/getTeam";
-import { renderGalleryItem } from "../requests/getImages";
 import Component from "../lib/component";
+import { Requests } from "../requests/requests";
 
 export default class TeamOverview extends Component {
   constructor() {
@@ -8,7 +7,7 @@ export default class TeamOverview extends Component {
   }
 
   async render() {
-    this.clean()
+    this.clean();
     const w = this.dom.write;
 
     this.app.appendChild(
@@ -25,7 +24,8 @@ export default class TeamOverview extends Component {
   }
 
   async after_render() {
-    await getTeam();
-    await renderGalleryItem();
+    const get = new Requests();
+    await get.team();
+    await get.galleryItem();
   }
 }

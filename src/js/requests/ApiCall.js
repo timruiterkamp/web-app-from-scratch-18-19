@@ -20,22 +20,22 @@ class ApiCall {
 }
 
 export default class GetData extends ApiCall {
-  async getCompetition(url) {
+  async competition(url) {
     const data = await super.fetcher(url);
     Store.dispatch("setCompetition", data);
   }
 
-  async getCompetitionStanding(url) {
+  async competitionStanding(url) {
     const data = await super.fetcher(url);
     Store.dispatch("setStanding", data);
   }
 
-  async getCompetitionTeams(url) {
+  async competitionTeams(url) {
     const data = await super.fetcher(url);
     Store.dispatch("setTeams", data);
   }
 
-  async getAllCompetitions(url) {
+  async allCompetitions(url) {
     const data = await super.fetcher(url);
     Store.dispatch("setAllCompetitions", data);
   }

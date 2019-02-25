@@ -9,14 +9,16 @@ export default class DOM {
     if (typeof node === "string") {
       return document.createTextNode(node);
     }
-    const el = document.createElement(node.type);
-    this.setProps(el, node.props);
-
-    console.log(node);
-    node.children
-      .map(child => this.create(child))
-      .forEach(el.appendChild.bind(el));
-    return el;
+    try {
+      const el = document.createElement(node.type);
+      this.setProps(el, node.props);
+      node.children
+        .map(child => this.create(child))
+        .forEach(el.appendChild.bind(el));
+      return el;
+    } catch {
+      console.error(node);
+    }
   }
 
   updateElement(parent, newNode, oldNode, index = 0) {
