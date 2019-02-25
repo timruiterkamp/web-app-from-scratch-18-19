@@ -7,6 +7,7 @@ export const getStanding = () => {
     ? JSON.parse(localStorage.standing)
     : Store.state.standing;
   const standingsContainer = document.querySelector(".standings");
+  console.log(standingsContainer);
   console.log(Store.state);
   StandingTable(standingsContainer, standing);
 };

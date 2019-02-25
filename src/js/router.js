@@ -1,4 +1,4 @@
-import { Home } from "./views/HomePage";
+import Home from "./views/HomePage";
 import { TeamOverview } from "./views/TeamOverview";
 import Store from "./store/index";
 
@@ -6,7 +6,7 @@ import Store from "./store/index";
 export const initRouter = () => {
   const routes = {
     "/#/team/:id": TeamOverview,
-    "/": Home
+    "/": new Home()
   };
 
   const parseRequestURL = () => {
@@ -24,18 +24,6 @@ export const initRouter = () => {
   };
 
   const router = async () => {
-    const content = null || document.querySelector("main");
-    const dataLayerCheck = document.querySelector(".datalayer");
-    let dataLayer;
-
-    if (dataLayerCheck) {
-      dataLayerCheck.remove();
-      dataLayer = document.createElement("section");
-    } else {
-      dataLayer = document.createElement("section");
-    }
-
-    dataLayer.classList.add("datalayer");
     const request = parseRequestURL();
 
     const parsedURL =
@@ -47,12 +35,10 @@ export const initRouter = () => {
 
     if (routes[parsedURL]) {
       const page = routes[parsedURL];
-      const template = await page.render();
-      dataLayer.insertAdjacentHTML("afterbegin", template);
-      content.appendChild(dataLayer);
+      await page.render();
       await page.after_render();
     } else {
-      console.error("doet het niet", routes[parsedURL]);
+      console.error("Page is undefined", routes[parsedURL]);
     }
   };
 

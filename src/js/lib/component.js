@@ -1,15 +1,9 @@
-import Store from "../store/store";
+import DOM from "./dom";
 
 export default class Component {
-  constructor(props = {}) {
-    this.render = this.render || function() {};
+  constructor() {
+    this.dom = new DOM();
+    this.app = document.querySelector('#app')
 
-    if (props.store instanceof Store) {
-      props.store.events.subscribe("stateChange", () => this.render());
-    }
-
-    if (props.hasOwnProperty("element")) {
-      this.element = props.element;
-    }
   }
 }

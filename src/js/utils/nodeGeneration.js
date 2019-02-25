@@ -36,6 +36,10 @@ export const nextMatch = (appendParent, match) => {
 };
 
 export const StandingTable = (appendParent, data) => {
+
+  if (!appendParent) {
+    console.log('geen parent')
+  }
   data.standings[0].table.forEach(team => {
     const TR = document.createElement("tr");
 
@@ -97,7 +101,6 @@ export const StandingTable = (appendParent, data) => {
       }
     ];
     createNodesForStanding(TR, teamObject);
-
     appendParent.appendChild(TR);
   });
 };

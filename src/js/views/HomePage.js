@@ -2,62 +2,85 @@ import { getStanding } from "../requests/getStanding";
 import { generateCompetitionList } from "../requests/getCompetition";
 import { renderGalleryItem } from "../requests/getImages";
 import { init } from "../init";
+import Component from "../lib/component";
 
-export const Home = {
-  render: async () => {
-    let view = `
-      <h1>Premiere league schedule</h1>
-
-      <section class="headerImage">
-      </section>
-
-      <section class="competition-selection"></section>
-
-      <section class="upcoming-match">
-        <h2>Upcoming match:</h2>
-        <ul class="teams"></ul>
-      </section>
-
-      <section class="content">
-        <div class="left-section">
-          <table>
-            <thead>
-              <tr>
-                <th>Position</th>
-                <th>Team</th>
-                <th>Points</th>
-                <th>Wins</th>
-                <th>Draws</th>
-                <th>Loses</th>
-                <th>Goals made</th>
-                <th>Goals against</th>
-                <th>Goal difference</th>
-              </tr>
-            </thead>
-            <tbody class="standings"></tbody>
-          </table>
-          <table class="topscorer"></table>
-        </div>
-        <div class="right-section">
-          <table>
-            <thead>
-              <tr>
-                <th class="homeTeam">Home team</th>
-                <th class="awayTeam">Away team</th>
-                <th class="playData">Date</th>
-              </tr>
-            </thead>
-            <tbody class="schedule"></tbody>
-          </table>
-        </div>
-        </section>
-      `;
-    return view;
-  },
-  after_render: async () => {
-    await init();
-    getStanding();
-    generateCompetitionList();
-    renderGalleryItem();
+export default class Home extends Component {
+  constructor() {
+    super();
   }
-};
+
+  async render() {
+    const w = this.dom.write;
+
+    this.app.appendChild(
+      this.dom.create(
+        w(
+          "section",
+          { class: "holder" },
+          w("h1", {}, "Premiere league schedule"),
+          w("section", { class: "headerImage" }),
+          w("section", { class: "competition-selection" }),
+          w(
+            "section",
+            { class: "upcoming-match" },
+            w("h2", {}, "Upcoming match:"),
+            w("ul", { class: "teams" })
+          ),
+          w(
+            "section",
+            { class: "content" },
+            w(
+              "div",
+              { class: "left-section" },
+              w(
+                "table",
+                {},
+                w(
+                  "thead",
+                  w(
+                    "tr",
+                    w("th", {}, "position"),
+                    w("th", {}, "Team"),
+                    w("th", {}, "Points"),
+                    w("th", {}, "wins"),
+                    w("th", {}, "Draws"),
+                    w("th", {}, "Loses"),
+                    w("th", {}, "Goals made"),
+                    w("th", {}, "Goals for"),
+                    w("th", {}, "Goals Against")
+                  )
+                ),
+                w("tbody", { class: "standings" })
+              ),
+              w("table", { class: "topscorer" })
+            ),
+            w(
+              "div",
+              { class: "right-section" },
+              w(
+                "table",
+                w(
+                  "thead",
+                  w(
+                    "tr",
+                    w("th", { class: "homeTeam" }, "Home team"),
+                    w("th", { class: "awayTeam" }, "Away team"),
+                    w("th", { class: "playData" }, "Date")
+                  )
+                ),
+                w("tbody", { class: "schedule" })
+              )
+            )
+          )
+        )
+      )
+    );
+  }
+
+  async after_render() {
+    await init();
+    await getStanding();
+    await generateCompetitionList();
+    await renderGalleryItem();
+  }
+}
