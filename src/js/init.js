@@ -13,7 +13,7 @@ export const init = async () => {
       competition.name
     }/matches?status=SCHEDULED`,
     allCompetitions: `https://api.football-data.org/v2/competitions/`,
-    teams: `http://api.football-data.org/v2/competitions/${
+    teams: `https://api.football-data.org/v2/competitions/${
       competition.key
     }/teams`
   };
