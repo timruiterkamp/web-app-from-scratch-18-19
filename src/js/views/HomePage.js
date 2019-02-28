@@ -1,6 +1,3 @@
-import { getStanding } from "../requests/getStanding";
-import { generateCompetitionList } from "../requests/getCompetition";
-import { renderGalleryItem } from "../requests/getImages";
 import { init } from "../init";
 import Component from "../lib/component";
 import { Requests } from "../requests/requests";
@@ -83,12 +80,11 @@ export default class Home extends Component {
   }
 
   async after_render() {
-    await init();
-
     const get = new Requests();
     await get.standing();
     await get.upcomingMatch();
     await get.competitionList();
     await get.galleryItem();
+    await get.allCompetitions();
   }
 }

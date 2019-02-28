@@ -1,28 +1,26 @@
-import StoreData from "./requests/ApiCall";
+import GetData from "./requests/ApiCall";
 
 export const init = async () => {
   const competition = {
     key: 2021,
     name: "PL"
   };
-  const data = {
-    standing: `https://api.football-data.org/v2/competitions/${
-      competition.key
-    }/standings`,
-    competition: `https://api.football-data.org/v2/competitions/${
+  const apiURL =
+    "https://cors-anywhere.herokuapp.com/https://api.football-data.org/v2";
+  const calls = {
+    standing: `${apiURL}/competitions/${competition.key}/standings`,
+    competition: `${apiURL}/competitions/${
       competition.name
     }/matches?status=SCHEDULED`,
-    allCompetitions: `https://api.football-data.org/v2/competitions/`,
-    teams: `https://api.football-data.org/v2/competitions/${
-      competition.key
-    }/teams`
+    allCompetitions: `${apiURL}/competitions/`,
+    teams: `${apiURL}/competitions/${competition.key}/teams`
   };
 
-  if (!localStorage.competition) {
+  if (!localStorage.allCompetitions) {
     const get = new GetData();
-    await get.getCompetitionStanding(data.standing);
-    await get.getCompetition(data.competition);
-    await get.getCompetitionTeams(data.teams);
-    await get.getAllCompetitions(data.allCompetitions);
+    await get.competitionStanding(calls.standing);
+    await get.competition(calls.competition);
+    await get.competitionTeams(calls.teams);
+    await get.allCompetitions(calls.allCompetitions);
   }
 };

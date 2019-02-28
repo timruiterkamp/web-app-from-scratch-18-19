@@ -105,7 +105,6 @@ export default class Generate extends Component {
         "tr",
         {},
         ...teamObject.map(stat => {
-          console.log(stat);
           const keys = Object.keys(stat);
           const options = stat[keys];
 
@@ -122,7 +121,6 @@ export default class Generate extends Component {
           );
         })
       );
-      console.log(content);
 
       appendParent.appendChild(this.dom.create(content));
     });

@@ -19,8 +19,6 @@ export class Requests extends Component {
     const section = document.querySelector(".team-overview");
 
     const w = this.w;
-
-    console.log(team);
     const content = w(
       "div",
       { class: "wrapper" },
@@ -38,17 +36,17 @@ export class Requests extends Component {
     const standing = localStorage.standing
       ? JSON.parse(localStorage.standing)
       : Store.state.standing;
-    const standingsContainer = document.querySelector(".standings");
-    this.get.standingTable(standingsContainer, standing);
+    const container = document.querySelector(".standings");
+    this.get.standingTable(container, standing);
   }
 
   competitionList() {
-    const competitionData = localStorage.competition
+    const data = localStorage.competition
       ? JSON.parse(localStorage.competition)
       : Store.state.competition;
-    const scheduleContainer = document.querySelector(".schedule");
+    const container = document.querySelector(".schedule");
 
-    competitionData.matches.map(async match => {
+    data.matches.map(async match => {
       const homeObject = {
         className: "homeTeam",
         id: match.homeTeam.id,
@@ -62,33 +60,42 @@ export class Requests extends Component {
       };
 
       await this.get.CompetitionTable(
-        scheduleContainer,
+        container,
         [homeObject, awayObject],
         parseDate(match.utcDate)
       );
     });
   }
 
+  allCompetitions() {
+    const data = localStorage.allCompetitions
+      ? JSON.parse(localStorage.allCompetition)
+      : Store.state.allCompetitions;
+
+    const container = document.querySelector(".competition-selection");
+    console.log(data);
+  }
+
   upcomingMatch() {
-    const competitionData = localStorage.competition
+    const data = localStorage.competition
       ? JSON.parse(localStorage.competition)
       : Store.state.competition;
-    const upcomingContainer = document.querySelector(".teams");
+    const container = document.querySelector(".teams");
 
     const match = {
       teams: [
         {
-          id: competitionData.matches[0].homeTeam.id,
-          name: competitionData.matches[0].homeTeam.name
+          id: data.matches[0].homeTeam.id,
+          name: data.matches[0].homeTeam.name
         },
         {
-          id: competitionData.matches[0].awayTeam.id,
-          name: competitionData.matches[0].awayTeam.name
+          id: data.matches[0].awayTeam.id,
+          name: data.matches[0].awayTeam.name
         }
       ],
-      date: parseDate(competitionData.matches[0].utcDate)
+      date: parseDate(data.matches[0].utcDate)
     };
-    return this.get.nextMatch(upcomingContainer, match);
+    return this.get.nextMatch(container, match);
   }
 
   galleryItem(randomNumber) {

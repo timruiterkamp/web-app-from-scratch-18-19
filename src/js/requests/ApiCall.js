@@ -37,6 +37,7 @@ export default class GetData extends ApiCall {
 
   async allCompetitions(url) {
     const data = await super.fetcher(url);
+    console.log(data);
     Store.dispatch("setAllCompetitions", data);
   }
 }
