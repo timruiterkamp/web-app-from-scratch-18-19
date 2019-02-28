@@ -23,7 +23,7 @@ export const initRouter = () => {
     return request;
   };
 
-  const router = async () => {
+  const renderTemplate = async () => {
     const request = parseRequestURL();
 
     const parsedURL =
@@ -43,6 +43,6 @@ export const initRouter = () => {
     }
   };
 
-  window.addEventListener("hashchange", router);
-  window.addEventListener("load", router);
+  window.addEventListener("hashchange", renderTemplate);
+  window.addEventListener("load", renderTemplate);
 };

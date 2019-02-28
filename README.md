@@ -57,6 +57,9 @@ Week 1 (trying to find out how the actor diagram works)
 Week 2: simplified the actors and chose the main actors of my application.
 ![Actor diagram](gh-images/ActorDiagram-week2.png)
 
+Week 3: simplified the actors and chose the main actors of my application.
+![Actor diagram](gh-images/Actor-diagram-week3.png)
+
 ## What API has been used and what is the limit of the API.
 
 The api that has been used is the [football-data API](https://football-data.org). The football-data API is a very big dataset with over 176 competitions in it, container every information about the clubs in the competitions and the players in the clubs.
@@ -81,7 +84,11 @@ The user will be landing on the homepage where they can find information about t
 
 If they are interested in their team or in the team they have to face in the next round, they can click on the team name and look through their an overview of their players and details about the players.
 
+Week 2:
 ![Interaction diagram](gh-images/InteractionDiagram-week2.png)
+
+Week 3:
+![Interaction diagram](gh-images/Interaction-diagram-week3.png)
 
 ## What design patterns and best practices did I use
 
