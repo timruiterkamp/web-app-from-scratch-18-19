@@ -17,8 +17,8 @@ export default class Home extends Component {
         w(
           "section",
           { class: "holder" },
-          w("h1", {}, "Premiere league schedule"),
           w("section", { class: "headerImage" }),
+          w("h1", {}, "Premiere league"),
           w("section", { class: "competition-selection" }),
           w(
             "section",

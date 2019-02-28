@@ -16,7 +16,7 @@ export const init = async () => {
     teams: `${apiURL}/competitions/${competition.key}/teams`
   };
 
-  if (!localStorage.allCompetitions) {
+  if (!localStorage.competition && localStorage.competition === undefined) {
     const get = new GetData();
     await get.competitionStanding(calls.standing);
     await get.competition(calls.competition);

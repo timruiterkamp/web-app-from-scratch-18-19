@@ -4,13 +4,15 @@ body {
   overflow-x: hidden;
   max-width: 100vw;
   font-family: "Open Sans", cursive;
+  margin: 0;
+  padding: 0;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
 }
-tr:nth-of-type(odd) {
+.standings tr:nth-of-type(odd) {
   background: #eee;
 }
 th {
@@ -24,18 +26,13 @@ th {
   text-align: left;
 }
 
-.headerImage {
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: black;
-}
-
 .upcoming-match {
-  padding: 300px 0 100px;
+  padding: 35px 0 35px;
   text-align: center;
+  background-color: #efefef;
+  width: 69vw;
+  margin: 0 auto 50px;
+  clip-path: polygon(0% 0, 90% 0%, 100% 100%, 10% 100%);
 }
 
 .upcoming-match ul {
@@ -47,14 +44,155 @@ th {
   padding: 0 1em;
 }
 
+.nextmatch-teams li a {
+  text-decoration: none;
+  color: white;
+}
+
+.teams li {
+  padding: 1em;
+}
+
+.teams li:first-child {
+  background-color: turquoise;
+}
+.nextmatch-teams {
+  padding: 0;
+}
+.nextmatch-teams li:first-child {
+  background-color: tomato;
+  position: relative;
+  padding-right: 75px;
+}
+.nextmatch-teams li:first-child:after {
+  content: "VS";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 100%;
+  background-color: purple;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nextmatch-teams li:last-child {
+  background-color: palevioletred;
+}
+.standings tr td {
+  font-size: 90%;
+}
+.standings tr td:first-of-type {
+  text-align: center;
+}
+
+.standings tr td:nth-child(3),
+.standings tr td:nth-child(4),
+.standings tr td:nth-child(5),
+.standings tr td:nth-child(6),
+.standings tr td:nth-child(7),
+.standings tr td:nth-child(8),
+.standings tr td:nth-child(9) {
+  text-align: center;
+}
+
+.standings tr td:nth-child(2) a {
+  color: black;
+  text-decoration: none;
+}
+
+.standings tr {
+  border-bottom: 0.5px solid #ffffff78;
+}
+
+.left-section thead th,
+.right-section thead th {
+  background-color: #f9f9f9;
+  color: #3a3a3a;
+}
+
+.right-section thead th {
+  text-align: center;
+}
+.standings tr:nth-child(1) td {
+  font-weight: 900;
+  font-size: 95%;
+}
+
+.standings tr:nth-child(1),
+.standings tr:nth-child(2),
+.standings tr:nth-child(3),
+.standings tr:nth-child(4) {
+  background-color: aquamarine;
+}
+.standings tr:nth-child(5),
+.standings tr:nth-child(6) {
+  background-color: darkorange;
+}
+
+.standings tr:nth-child(7) {
+  background-color: orange;
+}
+
+/* .schedule tr td:nth-child(2) {
+  background-color: palevioletred;
+} */
+
+.schedule tr {
+  background-color: peachpuff;
+  text-align: center;
+}
+
+.schedule tr td {
+  transition: 0.3s ease-in-out;
+  text-align: center;
+}
+.schedule tr td:first-child {
+  background-color: tomato;
+  position: relative;
+}
+
+.schedule tr td:first-child:after {
+  content: "VS";
+  position: absolute;
+  top: 0;
+  right: -20px;
+  width: 50px;
+  height: 100%;
+  background-color: purple;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.schedule tr td:nth-child(2) {
+  background-color: palevioletred;
+}
+
+.schedule tr td:hover {
+  background-color: paleturquoise;
+}
+
+.schedule tr td a {
+  color: white;
+  text-decoration: none;
+}
 h1 {
-  font-size: 8vh;
+  font-size: 3vw;
   color: white;
   max-width: 60vw;
   display: block;
   margin: 0 auto;
   text-align: center;
-  padding-top: 8rem;
+  margin-top: 8rem;
+  padding: 1.5em;
+  text-transform: uppercase;
+  background-color: black;
+  clip-path: polygon(10% 0, 100% 0%, 90% 100%, 0 100%);
 }
 
 @media only screen and (max-width: 760px),
@@ -106,19 +244,23 @@ h1 {
 }
 
 .left-section {
-  width: 65vw;
+  width: 50vw;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
 }
 .right-section {
-  width: 35vw;
+  width: 30vw;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
 }
 
 section.content {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 .team-overview {

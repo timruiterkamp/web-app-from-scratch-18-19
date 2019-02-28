@@ -1,6 +1,6 @@
 import "@babel/polyfill";
 import { initRouter } from "./router";
-import { init } from "./init";
+import { init as initStore } from "./init";
 
-init();
+initStore();
 initRouter();

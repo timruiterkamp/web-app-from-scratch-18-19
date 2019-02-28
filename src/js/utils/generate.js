@@ -12,7 +12,11 @@ export default class Generate extends Component {
       "tr",
       {},
       ...rows.map(team =>
-        w("td", {}, w("a", { href: `/#/team/${team.id}` }, team.name))
+        w(
+          "td",
+          {},
+          w("a", { href: `/#/team/${team.id}` }, team.name.slice(0, 3))
+        )
       ),
       w("p", {}, date)
     );
@@ -26,8 +30,8 @@ export default class Generate extends Component {
       {},
       w("li", {}, match.date),
       w(
-        "li",
-        {},
+        "ul",
+        { class: "nextmatch-teams" },
         ...match.teams.map(team =>
           w("li", {}, w("a", { href: `/#/team/${team.id}` }, team.name))
         )

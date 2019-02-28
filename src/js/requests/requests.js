@@ -6,7 +6,7 @@ import Component from "../lib/component";
 export class Requests extends Component {
   constructor() {
     super();
-    this.get = new Generate();
+    this.generate = new Generate();
     this.w = this.dom.write;
   }
 
@@ -37,7 +37,7 @@ export class Requests extends Component {
       ? JSON.parse(localStorage.standing)
       : Store.state.standing;
     const container = document.querySelector(".standings");
-    this.get.standingTable(container, standing);
+    this.generate.standingTable(container, standing);
   }
 
   competitionList() {
@@ -46,25 +46,28 @@ export class Requests extends Component {
       : Store.state.competition;
     const container = document.querySelector(".schedule");
 
-    data.matches.map(async match => {
-      const homeObject = {
-        className: "homeTeam",
-        id: match.homeTeam.id,
-        name: match.homeTeam.name
-      };
+    console.log(data);
+    data.matches
+      .filter(match => match.matchday === parseInt(29))
+      .map(async match => {
+        const homeObject = {
+          className: "homeTeam",
+          id: match.homeTeam.id,
+          name: match.homeTeam.name
+        };
 
-      const awayObject = {
-        className: "awayTeam",
-        id: match.awayTeam.id,
-        name: match.awayTeam.name
-      };
+        const awayObject = {
+          className: "awayTeam",
+          id: match.awayTeam.id,
+          name: match.awayTeam.name
+        };
 
-      await this.get.CompetitionTable(
-        container,
-        [homeObject, awayObject],
-        parseDate(match.utcDate)
-      );
-    });
+        await this.generate.CompetitionTable(
+          container,
+          [homeObject, awayObject],
+          parseDate(match.utcDate)
+        );
+      });
   }
 
   allCompetitions() {
@@ -95,7 +98,7 @@ export class Requests extends Component {
       ],
       date: parseDate(data.matches[0].utcDate)
     };
-    return this.get.nextMatch(container, match);
+    return this.generate.nextMatch(container, match);
   }
 
   galleryItem(randomNumber) {
