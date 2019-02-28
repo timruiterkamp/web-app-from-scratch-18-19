@@ -1,5 +1,7 @@
 import Component from "../lib/component";
 import { Requests } from "../requests/requests";
+import Store from "../store/index.js";
+import eventHandler from "../utils/eventHandler";
 
 export default class TeamOverview extends Component {
   constructor() {
@@ -16,16 +18,24 @@ export default class TeamOverview extends Component {
           "section",
           { class: "holder" },
           w("section", { class: "headerImage" }),
-          w("section", { class: "team-overview" }),
-          w("a", { href: "/" }, "Go back")
+          w(
+            "section",
+            { class: "team-overview" },
+            w("a", { href: "/" }, "Go back")
+          )
         )
       )
     );
   }
 
   async after_render() {
-    const get = new Requests();
-    await get.team();
-    await get.galleryItem();
+    const events = new eventHandler();
+    console.log(localStorage.getItem("loading"));
+    if (!Store.state.loading || localStorage.getItem("loading") === true) {
+      const get = new Requests();
+      await get.galleryItem();
+      await get.team();
+    }
+    events.loading();
   }
 }

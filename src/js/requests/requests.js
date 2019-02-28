@@ -14,20 +14,49 @@ export class Requests extends Component {
     const id = Store.state.currentTeam;
     const teams = localStorage.teams
       ? JSON.parse(localStorage.teams)
-      : Store.state.team.teams;
+      : Store.state.teams;
+    console.log(Store.state.standing);
+
+    const standing = localStorage.standing
+      ? JSON.parse(localStorage.standing).standings[0].table
+      : Store.state.standing.standings[0].table;
+
     const team = teams.teams.find(team => team.id === Number(id));
+    const teamStanding = standing.find(
+      pos => pos.team.name === team.name.toString()
+    );
+
+    console.log(teamStanding);
+
     const section = document.querySelector(".team-overview");
 
     const w = this.w;
     const content = w(
       "div",
       { class: "wrapper" },
-      w("h1", {}, team.name),
-      w("p", {}, team.name),
-      w("p", {}, team.address),
-      w("p", {}, team.founded.toString()),
-      w("p", {}, team.email ? team.email : ""),
-      w("p", {}, team.clubColors)
+      w(
+        "div",
+        { class: "information" },
+        w("h1", {}, team.name),
+        w("p", {}, team.name),
+        w("p", {}, team.address),
+        w("p", {}, team.founded.toString()),
+        w("p", {}, team.email ? team.email : ""),
+        w("p", {}, team.clubColors)
+      ),
+      w(
+        "div",
+        { class: "standing" },
+        w("p", {}, `Position: ${teamStanding.position}`),
+        w("p", {}, `Points: ${teamStanding.points}`),
+        w("p", {}, `Played games: ${teamStanding.playedGames}`),
+        w("p", {}, `Won: ${teamStanding.won}`),
+        w("p", {}, `Draw: ${teamStanding.draw}`),
+        w("p", {}, `Lost: ${teamStanding.lost}`),
+        w("p", {}, `Goals made: ${teamStanding.goalsFor}`),
+        w("p", {}, `Goals against: ${teamStanding.goalsAgainst}`),
+        w("p", {}, `Goal difference: ${teamStanding.goalDifference}`)
+      )
     );
     section.appendChild(this.dom.create(content));
   }

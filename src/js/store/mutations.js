@@ -16,8 +16,12 @@ export default {
     return state;
   },
   setAllCompetitions(state, payload) {
-    console.log(payload);
     state.allCompetitions = payload;
+    return state;
+  },
+  setLoading(state, payload) {
+    console.log(state, payload);
+    state.loading = payload;
     return state;
   }
 };

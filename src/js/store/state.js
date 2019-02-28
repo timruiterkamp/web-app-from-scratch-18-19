@@ -3,5 +3,6 @@ export default {
   standing: {},
   teams: {},
   currentTeam: {},
-  allCompetitions: {}
+  allCompetitions: {},
+  loading: true
 };

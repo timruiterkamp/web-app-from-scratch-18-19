@@ -18,5 +18,9 @@ export default {
   setAllCompetitions(context, payload) {
     localStorage.setItem("competitions", JSON.stringify(payload));
     context.commit("setAllCompetitions", payload);
+  },
+  setLoading(context, payload) {
+    localStorage.setItem("loaded", true);
+    context.commit("setLoading", payload);
   }
 };
