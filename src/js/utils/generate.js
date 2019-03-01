@@ -42,9 +42,6 @@ export default class Generate extends Component {
   }
 
   standingTable(appendParent, data) {
-    if (!appendParent) {
-      console.log("geen parent");
-    }
     data.standings[0].table.map(async team => {
       const teamObject = [
         {

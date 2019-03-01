@@ -20,7 +20,6 @@ export default {
     return state;
   },
   setLoading(state, payload) {
-    console.log(state, payload);
     state.loading = payload;
     return state;
   }

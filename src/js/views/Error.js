@@ -25,7 +25,6 @@ export default class ErrorTemplate extends Component {
   }
 
   async after_render() {
-    console.log(Store.state);
     Store.dispatch("setLoading", true);
   }
 }

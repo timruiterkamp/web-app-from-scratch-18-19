@@ -18,7 +18,6 @@ export const init = async () => {
     teams: `${apiURL}/competitions/${competition.key}/teams`
   };
 
-  console.log(localStorage.getItem("competition") === "undefined");
   if (
     !localStorage.competition ||
     localStorage.getItem("competition") === "undefined"
@@ -28,7 +27,7 @@ export const init = async () => {
     event.loading();
 
     await get.competition(calls.competition);
-    await get.allCompetitions(calls.allCompetitions);
+    // await get.allCompetitions(calls.allCompetitions);
     await get.competitionStanding(calls.standing);
     await get.competitionTeams(calls.teams);
 

@@ -18,7 +18,8 @@ class ApiCall {
           event.error(err.status, err.message);
         });
     } catch {
-      console.log("Laad de pagina nogmaals");
+      const event = new eventHandler();
+      event.error("503", "data kon niet worden opgehaald, teveel api requests");
     }
   }
 }
@@ -41,7 +42,6 @@ export default class GetData extends ApiCall {
 
   async allCompetitions(url) {
     const data = await super.fetcher(url);
-    console.log(data);
     Store.dispatch("setAllCompetitions", data);
   }
 }

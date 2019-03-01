@@ -20,9 +20,6 @@ export default class Store {
     this.state = new Proxy(params.state || {}, {
       set: (state, key, value) => {
         state[key] = value;
-
-        console.log(`stateChange: ${key}: ${value}`);
-
         this.events.publish("stateChange", this.state);
 
         if (this.status !== "mutation") {
@@ -55,7 +52,6 @@ export default class Store {
 
   commit(mutationKey, payload) {
     if (typeof this.mutations[mutationKey] !== "function") {
-      console.log(`Mutation "${mutationKey}" doesn't exist`);
       return false;
     }
 

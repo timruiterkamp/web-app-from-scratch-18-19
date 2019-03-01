@@ -88,7 +88,7 @@ export default class Home extends Component {
       await get.upcomingMatch();
       await get.competitionList();
       await get.galleryItem();
-      await get.allCompetitions();
+      // await get.allCompetitions();
     } else if (Store.state.loading) {
       events.loading();
     }

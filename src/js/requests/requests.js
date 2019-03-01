@@ -19,7 +19,6 @@ export class Requests extends Component {
       const teams = localStorage.teams
         ? JSON.parse(localStorage.teams)
         : Store.state.teams;
-      console.log(Store.state.standing);
 
       const standing = localStorage.standing
         ? JSON.parse(localStorage.standing).standings[0].table
@@ -29,8 +28,6 @@ export class Requests extends Component {
       const teamStanding = standing.find(
         pos => pos.team.name === team.name.toString()
       );
-
-      console.log(teamStanding);
 
       const section = document.querySelector(".team-overview");
 
@@ -83,7 +80,6 @@ export class Requests extends Component {
       : Store.state.competition;
     const container = document.querySelector(".schedule");
 
-    console.log(data);
     if (!data) {
       const events = new eventHandler();
       events.loading();
@@ -117,7 +113,6 @@ export class Requests extends Component {
       : Store.state.allCompetitions;
 
     const container = document.querySelector(".competition-selection");
-    console.log(data);
   }
 
   upcomingMatch() {

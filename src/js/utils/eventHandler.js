@@ -11,11 +11,9 @@ export default class eventHandler extends Component {
   loading(container) {
     const loadingPage = new LoadingTemplate();
     loadingPage.render(container);
-    console.log("loading");
   }
 
   async error(error, message) {
-    console.log(error, message);
     const errorPage = new ErrorTemplate();
     await errorPage.render(error, message);
     await errorPage.after_render();
