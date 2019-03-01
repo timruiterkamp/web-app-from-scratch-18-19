@@ -1,6 +1,7 @@
 import Home from "./views/HomePage";
 import TeamOverview from "./views/TeamOverview";
 import Store from "./store/index";
+import eventHandler from "./utils/eventHandler";
 
 // Source used: https://dev.to/rishavs/making-a-single-page-app-in-ye-good-olde-js-es6-3eng
 export const initRouter = () => {
@@ -39,7 +40,11 @@ export const initRouter = () => {
       await page.render();
       await page.after_render();
     } else {
-      console.error("Page is undefined", routes[parsedURL]);
+      const events = new eventHandler();
+      events.error(
+        "404",
+        "Deze pagina bestaat niet, probeer een andere pagina"
+      );
     }
   };
 

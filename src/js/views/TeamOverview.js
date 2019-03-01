@@ -30,12 +30,10 @@ export default class TeamOverview extends Component {
 
   async after_render() {
     const events = new eventHandler();
-    console.log(localStorage.getItem("loading"));
     if (!Store.state.loading || localStorage.getItem("loading") === true) {
       const get = new Requests();
       await get.galleryItem();
       await get.team();
     }
-    events.loading();
   }
 }

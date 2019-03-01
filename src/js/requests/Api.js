@@ -1,4 +1,5 @@
 import Store from "../store/index.js";
+import eventHandler from "../utils/eventHandler.js";
 require("dotenv").config();
 
 class ApiCall {
@@ -12,7 +13,11 @@ class ApiCall {
         headers: { "X-Auth-Token": this.apiKey }
       })
         .then(data => data.json())
-        .catch(err => console.error(err));
+        .catch(err => {
+          console.log(err);
+          const event = new eventHandler();
+          event.error(err.status, err.message);
+        });
     } catch {
       console.log("Laad de pagina nogmaals");
     }

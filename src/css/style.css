@@ -335,3 +335,23 @@ section.content {
 .headerImage img:nth-child(2) {
   display: none;
 }
+
+.error {
+  text-align: center;
+}
+
+.loading h1 {
+  animation: clip-path-animation 5s linear infinite;
+}
+
+@keyframes clip-path-animation {
+  0% {
+    clip-path: polygon(10% 0, 100% 0%, 90% 100%, 0 100%);
+  }
+  50% {
+    clip-path: polygon(0% 0, 90% 0%, 100% 100%, 10% 100%);
+  }
+  100% {
+    clip-path: polygon(10% 0, 100% 0%, 90% 100%, 0 100%);
+  }
+}

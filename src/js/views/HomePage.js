@@ -1,6 +1,7 @@
-import { init } from "../init";
 import Component from "../lib/component";
 import { Requests } from "../requests/requests";
+import eventHandler from "../utils/eventHandler";
+import Store from "../store/index";
 
 export default class Home extends Component {
   constructor() {
@@ -80,11 +81,16 @@ export default class Home extends Component {
   }
 
   async after_render() {
-    const get = new Requests();
-    await get.standing();
-    await get.upcomingMatch();
-    await get.competitionList();
-    await get.galleryItem();
-    await get.allCompetitions();
+    const events = new eventHandler();
+    if (!Store.state.loading || localStorage.getItem("loading") === true) {
+      const get = new Requests();
+      await get.standing();
+      await get.upcomingMatch();
+      await get.competitionList();
+      await get.galleryItem();
+      await get.allCompetitions();
+    } else if (Store.state.loading) {
+      events.loading();
+    }
   }
 }
