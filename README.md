@@ -13,10 +13,11 @@ In this project I build a Web app from scratch using API. The use case of this p
 7. [How does interaction flow through the application](#How-does-interaction-flow-through-the-application)
 8. [What design patterns and best practices did I use](#What-design-patterns-and-best-practices-did-I-use)
 9. [What I have learned](#What-i-have-learned)
-10. [What do I want to add to the project](#What-do-I-want-to-add-to-the-project)
-11. [Technologies used](#technologies-used)
-12. [Data sources](#data-sources)
-13. [License](#license)
+10. [Highlighted code](#Highlighted-code)
+11. [What do I want to add to the project](#What-do-I-want-to-add-to-the-project)
+12. [Technologies used](#technologies-used)
+13. [Data sources](#data-sources)
+14. [License](#license)
 
 ## Live demo
 
@@ -249,6 +250,7 @@ Store.state.competition;
 - [ ] Loading states
 - [x] Store
 - [x] Minimize calls with localStorage
+- [ ] Gather last played matches per team
 
 ## Techniques used
 
