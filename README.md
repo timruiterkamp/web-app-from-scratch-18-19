@@ -62,6 +62,7 @@ My app is a representation of the current premiere league standing with the poss
 <details>
 
 <summary>Week 1 (trying to find out how the actor diagram works)</summary>
+
 ![Actor diagram](gh-images/actor-diagram.jpg)
 
 </details>
@@ -69,12 +70,15 @@ My app is a representation of the current premiere league standing with the poss
 <details>
 
 <summary>Week 2: simplified the actors and chose the main actors of my application.</summary>
+
 ![Actor diagram](gh-images/ActorDiagram-week2.png)
+
 </details>
 
 <details open>
 
 <summary>Week 3: Gave more meaning to the actors and detail to what they do.</summary>
+
 ![Actor diagram](gh-images/Actor-diagram-week3.png)
 
 </details>
@@ -150,11 +154,14 @@ If they are interested in their team or in the team they have to face in the nex
 <details>
 
 <summary>Week 2:</summary>
+
 ![Interaction diagram](gh-images/InteractionDiagram-week2.png)
+
 </details>
 <details open>
 
 <summary>Week 3:</summary>
+
 ![Interaction diagram](gh-images/Interaction-diagram-week3.png)
 
 </details>
