@@ -224,6 +224,16 @@ setCompetition(context, payload) {
 },
 ```
 
+The way I use this in my project is as following:
+
+```javascript
+// to store data in the state
+Store.dispatch("setCompetition", data);
+
+//to gather the stored data
+Store.state.competition;
+```
+
 ## What do I want to add to the project?
 
 - [x] Render a list from the data
