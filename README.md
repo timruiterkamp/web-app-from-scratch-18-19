@@ -12,10 +12,11 @@ In this project I build a Web app from scratch using API. The use case of this p
 6. [What API has been used and what is the limit of the API](#What-API-has-been-used-and-what-is-the-limit-of-the-API.)
 7. [How does interaction flow through the application](#How-does-interaction-flow-through-the-application)
 8. [What design patterns and best practices did I use](#What-design-patterns-and-best-practices-did-I-use)
-9. [What do I want to add to the project](#What-do-I-want-to-add-to-the-project)
-10. [Technologies used](#technologies-used)
-11. [Data sources](#data-sources)
-12. [License](#license)
+9. [What I have learned](#What-i-have-learned)
+10. [What do I want to add to the project](#What-do-I-want-to-add-to-the-project)
+11. [Technologies used](#technologies-used)
+12. [Data sources](#data-sources)
+13. [License](#license)
 
 ## Live demo
 
@@ -47,7 +48,7 @@ Run the project
 
 ## Description
 
-My app is a representation of the current premiere league standing with the possibility to get insight to a club.
+My app is a representation of the current premiere league standing with the possibility to get insight to a club. And how they performed individually.
 
 ## Features
 
@@ -56,6 +57,8 @@ My app is a representation of the current premiere league standing with the poss
 - Virtual DOM
 - Store
 - Event handlers
+- Detail page rendering
+- Before and After render functions
 
 ## Which actors are there in my application?
 
@@ -149,7 +152,7 @@ await get.competition(calls.competition);
 
 The user will be landing on the homepage where they can find information about the club in the Premiere League they support, they can see their score, goals made / goals against, standing on the league table and opponents they have to face in the next round of the Premiere League.
 
-If they are interested in their team or in the team they have to face in the next round, they can click on the team name and look through their an overview of their players and details about the players.
+If they are interested in their team or in the team they have to face in the next round, they can click on the team name and look through their club information and highlighted standing.
 
 <details>
 
@@ -168,10 +171,58 @@ If they are interested in their team or in the team they have to face in the nex
 
 ## What design patterns and best practices did I use
 
-- Functional programming where possible
-- Module based developing
+For the code I tried to find myself a style which would consist of class module and functional modules usage where they would belong. Because in my opinion not every little function should be contained in a class, only if it's meaningful. The data loading would consist of loading the data async and while loading the data the loading template would occur, to give the user feedback.
+I also tried to use ES6 functionalities like arrow functions in functional modules. Why I would do this, is because this automaticly binds `this` to the scope, where as non arrow function, the this could belong to the parent's scope.
 
-> Will be adding more over the weeks.
+How I solved this on the front-end is to give the user feedback whenever he/she did something wrong or there was an error in het code, which would result in data not being loaded. For this I created an event handler which consists of loading and error solutions.
+
+## What I have learned
+
+I have to say that this course was very fun to do, because you could go as deep in the functionalities as you like. Over the past three weeks I learned about creating your own store, router and virtual DOM. Also the differences between injecting HTML into your front-end with for example `element.innerHTML` and create DOM nodes which are a much safer way to inject data into the front-end.
+
+Overall the course was really fun to do, and I'm glad that I have experimented with many aspects of a web app (from scratch).
+
+## Highlighted code
+
+I'm quite proud of how I solved things like my own virtual DOM and my store.
+
+The store for example exists out of 6 aspects:
+
+- The Store functionality
+- The Store handler, which directs action to the store to the correct functions.
+- Actions, here the data would be put inside the state
+- Mutations, here are the dispatch functions declared
+- State, here are the default states of the mutations/actions.
+- Index, which includes everything together and makes the Store reachable.
+
+A representation of the workflow goes as following:
+
+The state will be defined first so that mutations and actions can be directed towards it.
+The state is just an object that is being exported to the index file and made available for the actions and mutations.
+
+```javascript
+competition: {},
+```
+
+the mutations are defined after the state is set:
+The state is the defined state and the payload the data that needs to be added to the state.
+
+```javascript
+setCompetition(state, payload) {
+    state.competition = payload;
+    return state;
+  },
+```
+
+My actions would be declared like this:
+The context is the mutations that has to be called and the payload is the data that needs to be handled
+
+```javascript
+setCompetition(context, payload) {
+  localStorage.setItem("competition", JSON.stringify(payload));
+  context.commit("setCompetition", payload);
+},
+```
 
 ## What do I want to add to the project?
 
@@ -194,6 +245,7 @@ If they are interested in their team or in the team they have to face in the nex
 - ParcelJS
 - Fetch
 - Hashrouter
+- ES6+
 
 ## License
 
