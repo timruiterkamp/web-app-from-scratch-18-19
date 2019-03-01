@@ -14,7 +14,6 @@ class ApiCall {
       })
         .then(data => data.json())
         .catch(err => {
-          console.log(err);
           const event = new eventHandler();
           event.error(err.status, err.message);
         });

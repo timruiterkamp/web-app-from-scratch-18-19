@@ -8,9 +8,9 @@ export default class eventHandler extends Component {
     this.w = this.dom.write;
   }
 
-  loading(container, message) {
+  loading(container) {
     const loadingPage = new LoadingTemplate();
-    loadingPage.render();
+    loadingPage.render(container);
     console.log("loading");
   }
 

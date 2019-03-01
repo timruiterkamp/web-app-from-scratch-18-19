@@ -3,6 +3,7 @@ import Generate from "../utils/generate";
 import { parseDate } from "../utils/dateParsing";
 import Component from "../lib/component";
 import eventHandler from "../utils/eventHandler";
+import store from "../store/index";
 
 export class Requests extends Component {
   constructor() {
@@ -152,7 +153,6 @@ export class Requests extends Component {
       `https://source.unsplash.com/collection/${collectionID}/${imageWidth}x${imageHeight}/?sig=${randomNumber}`
     ).then(response => {
       const headerContainer = document.querySelector(".headerImage");
-
       if (headerContainer) {
         const image = this.w("img", {
           src: response.url,

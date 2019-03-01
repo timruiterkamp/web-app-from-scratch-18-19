@@ -18,7 +18,11 @@ export const init = async () => {
     teams: `${apiURL}/competitions/${competition.key}/teams`
   };
 
-  if (!localStorage.competition && localStorage.competition === undefined) {
+  console.log(localStorage.getItem("competition") === "undefined");
+  if (
+    !localStorage.competition ||
+    localStorage.getItem("competition") === "undefined"
+  ) {
     const get = new GetData();
     const event = new eventHandler();
     event.loading();
