@@ -22,10 +22,12 @@ export const init = async () => {
     const get = new GetData();
     const event = new eventHandler();
     event.loading();
+
     await get.competition(calls.competition);
     await get.allCompetitions(calls.allCompetitions);
     await get.competitionStanding(calls.standing);
     await get.competitionTeams(calls.teams);
+
     Store.dispatch("setLoading", false);
     window.location.reload(); // should be addded to a store watcher
   }

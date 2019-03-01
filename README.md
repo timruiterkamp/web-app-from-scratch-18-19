@@ -45,20 +45,39 @@ Run the project
   npm run start
 ```
 
-## Description?
+## Description
 
-My app is a representation of the current premiere league standing with the possibility to get insight to a club and player.
+My app is a representation of the current premiere league standing with the possibility to get insight to a club.
+
+## Features
+
+- Landing page with the Premier League competition standing and upcoming matches
+- Router
+- Virtual DOM
+- Store
+- Event handlers
 
 ## Which actors are there in my application?
 
-Week 1 (trying to find out how the actor diagram works)
+<details>
+
+<summary>Week 1 (trying to find out how the actor diagram works)</summary>
 ![Actor diagram](gh-images/actor-diagram.jpg)
 
-Week 2: simplified the actors and chose the main actors of my application.
-![Actor diagram](gh-images/ActorDiagram-week2.png)
+</details>
 
-Week 3: simplified the actors and chose the main actors of my application.
+<details>
+
+<summary>Week 2: simplified the actors and chose the main actors of my application.</summary>
+![Actor diagram](gh-images/ActorDiagram-week2.png)
+</details>
+
+<details open>
+
+<summary>Week 3: Gave more meaning to the actors and detail to what they do.</summary>
 ![Actor diagram](gh-images/Actor-diagram-week3.png)
+
+</details>
 
 ## What API has been used and what is the limit of the API.
 
@@ -76,7 +95,51 @@ Data that I used:
 - Premiere League clubs
 - Premiere League players
 
-To solve the issue with the minimal calls I can make I set the localStorage the first time s
+To solve the issue with the minimal calls I set the localStorage the first time ever the page loads so the data will be stored and no calls would be needed when revisiting a page.
+
+To connect with the several endpoints of the API I created a class which makes the calls based on a given url.
+
+The class looks as following:
+
+```javascript
+class ApiCall {
+  constructor() {
+    this.apiKey = process.env.FOOTBALL_API_KEY;
+  }
+
+  fetcher(url) {
+    return fetch(url, {
+      headers: { "X-Auth-Token": this.apiKey }
+    })
+      .then(data => data.json())
+      .catch(err => console.error(err));
+  }
+}
+
+export default class GetData extends ApiCall {
+  async competition(url) {
+    const data = await super.fetcher(url);
+    Store.dispatch("setCompetition", data);
+  }
+}
+```
+
+And to get the Premier League standing for example I would use the following code:
+
+```javascript
+const competition = {
+  key: 2021,
+  name: "PL"
+};
+const apiURL =
+  "https://cors-anywhere.herokuapp.com/https://api.football-data.org/v2";
+const calls = {
+  standing: `${apiURL}/competitions/${competition.key}/standings`
+};
+
+const get = new GetData();
+await get.competition(calls.competition);
+```
 
 ## How does interaction flow through the application
 
@@ -84,11 +147,17 @@ The user will be landing on the homepage where they can find information about t
 
 If they are interested in their team or in the team they have to face in the next round, they can click on the team name and look through their an overview of their players and details about the players.
 
-Week 2:
-![Interaction diagram](gh-images/InteractionDiagram-week2.png)
+<details>
 
-Week 3:
+<summary>Week 2:</summary>
+![Interaction diagram](gh-images/InteractionDiagram-week2.png)
+</details>
+<details open>
+
+<summary>Week 3:</summary>
 ![Interaction diagram](gh-images/Interaction-diagram-week3.png)
+
+</details>
 
 ## What design patterns and best practices did I use
 
@@ -102,13 +171,13 @@ Week 3:
 - [x] Render a list from the data
 - [x] Views generated based on route
 - [x] fix routing
-- [ ] Shadow DOM (If there is time)
-- [ ] Player and team overview
+- [x] Virtual DOM (If there is time)
+- [x] Team overview
 - [ ] Multiple competition support
-- [ ] Better design
+- [x] Better design
 - [ ] Select own competition
-- [ ] Fix styling
-- [ ] Build out the template engine
+- [x] Fix styling
+- [x] Build out the template engine
 - [ ] Loading states
 - [x] Store
 - [x] Minimize calls with localStorage
